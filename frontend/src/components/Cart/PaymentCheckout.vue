@@ -175,16 +175,15 @@ const handleFinalizeOrder = async () => {
       })),
       calkowitaKwota: paymentAmount,
       idAdresu: matchedId,
-      nowyAdres:
-        isLocalDelivery.value || matchedId
-          ? null
-          : {
-              ulica: addressForm.value.street,
-              numerBudynku: addressForm.value.buildingNo,
-              numerLokalu: addressForm.value.aptNo || null,
-              kodPocztowy: addressForm.value.postalCode,
-              miasto: addressForm.value.city,
-            },
+      nowyAdres: matchedId
+        ? null
+        : {
+            ulica: addressForm.value.street,
+            numerBudynku: addressForm.value.buildingNo,
+            numerLokalu: addressForm.value.aptNo || null,
+            kodPocztowy: addressForm.value.postalCode,
+            miasto: addressForm.value.city,
+          },
       email: addressForm.value.email,
       imie: addressForm.value.firstName,
       nazwisko: addressForm.value.lastName,

@@ -34,15 +34,11 @@ const isPostalCodeValid = computed(() => {
 })
 const isFormInvalid = () => {
   const isEmpty = (value) => value == null || value.trim() === ""
-  let isAddressValid = true
-
-  if (!isLocalDelivery.value) {
-    isAddressValid =
-      !isEmpty(addressForm.value.street) &&
-      !isEmpty(addressForm.value.buildingNo) &&
-      !isEmpty(addressForm.value.city) &&
-      isPostalCodeValid.value
-  }
+  const isAddressValid =
+    !isEmpty(addressForm.value.street) &&
+    !isEmpty(addressForm.value.buildingNo) &&
+    !isEmpty(addressForm.value.city) &&
+    isPostalCodeValid.value
 
   return (
     !isEmpty(addressForm.value.firstName) &&
@@ -236,14 +232,16 @@ onMounted(() => {
               </div>
             </div>
 
-            <div v-if="!isLocalDelivery" class="checkout-section mb-4">
-              <h3 class="section-subtitle">3. Shipping Address</h3>
+            <div class="checkout-section mb-4">
+              <h3 class="section-subtitle">
+                3. {{ isLocalDelivery ? "Order Address" : "Shipping Address" }}
+              </h3>
 
               <p v-if="hasAddress" class="section-hint success-hint mb-4 mt-2">
-                ✓ Using address selected during delivery cost calculation.
+                ✓ Using the address selected during delivery calculation.
               </p>
               <p v-else class="section-hint mb-4 mt-2">
-                Please fill in your delivery details below.
+                Please fill in your address details below.
               </p>
 
               <div class="form-group mb-3">
