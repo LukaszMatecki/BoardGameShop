@@ -4,9 +4,19 @@ import api from "@/services/axios.js"
 const STORAGE_KEY = "shopping_cart"
 const TOKEN_KEY = "token"
 
-const userId = JSON.parse(localStorage.getItem("user"))?.id
-const isAddToCartActive = ref(false)
+const getUserId = () => {
+  try {
+    const user = JSON.parse(localStorage.getItem("user") || "null")
+    const id = Number(user?.id ?? user?.Id)
+    return Number.isInteger(id) && id > 0 ? id : null
+  } catch {
+    return null
+  }
+}
+
+let cartLoadPromise = null
 const cartId = ref(null)
+const cartUserId = ref(null)
 
 export const isLoggedIn = ref(localStorage.getItem(TOKEN_KEY) !== null)
 export const cartItems = ref([])
@@ -71,38 +81,55 @@ export const cartCount = computed(() => {
   }, 0)
 })
 
-const createRemoteCart = async () => {
+const createRemoteCart = async (currentUserId) => {
   const payload = {
-    idUzytkownika: userId,
+    idUzytkownika: currentUserId,
+    pozycje: [],
   }
 
-  return await api.post("cart", payload)
+  const { data } = await api.post("cart", payload)
+  cartId.value = data.idKoszyka
+  cartUserId.value = currentUserId
+  cartItems.value = data.pozycje || []
+  return cartItems.value
 }
 
 export const getCart = async () => {
-  if (isAddToCartActive.value) return
-  isAddToCartActive.value = true
   refreshLoggedInStatus()
   if (!isLoggedIn.value) {
     const localData = localStorage.getItem(STORAGE_KEY)
     cartItems.value = localData ? JSON.parse(localData) : []
-    isAddToCartActive.value = false
+    cartId.value = null
+    cartUserId.value = null
     return cartItems.value
   }
-  try {
-    const { data } = await api.get(`cart/latest/${userId}`)
-    let dbCart = data.pozycje || []
-    cartItems.value = dbCart
-    cartId.value = data.idKoszyka
-    isAddToCartActive.value = false
-    return cartItems.value
-  } catch (error) {
-    if (error.response?.status === 404) {
-      return await createRemoteCart()
+
+  if (cartLoadPromise) return cartLoadPromise
+
+  const currentUserId = getUserId()
+  if (!currentUserId) {
+    throw new Error("The logged-in user's ID is missing from local storage.")
+  }
+
+  cartLoadPromise = (async () => {
+    try {
+      const { data } = await api.get(`cart/latest/${currentUserId}`)
+      cartItems.value = data.pozycje || []
+      cartId.value = data.idKoszyka
+      cartUserId.value = currentUserId
+      return cartItems.value
+    } catch (error) {
+      if (error.response?.status === 404) {
+        return await createRemoteCart(currentUserId)
+      }
+      throw error
     }
-    throw error
+  })()
+
+  try {
+    return await cartLoadPromise
   } finally {
-    isAddToCartActive.value = false
+    cartLoadPromise = null
   }
 }
 
@@ -156,17 +183,32 @@ export const updateQuantity = async (product, delta, showAlert) => {
 export const addToCart = async (product, showAlert) => {
   refreshLoggedInStatus()
   try {
-    if (!cartId.value && isLoggedIn.value) await getCart()
-    //fixes diffrent Id name
-    if (product.productId) product.idProduktu = product.productId
+    if (!product) throw new Error("No product was provided.")
+
+    const productId = Number(product.idProduktu ?? product.productId ?? product.id)
+    if (!Number.isInteger(productId) || productId <= 0) {
+      throw new Error("The product ID is missing or invalid.")
+    }
+
+    const cartProduct = product.idProduktu === productId
+      ? product
+      : { ...product, idProduktu: productId }
+
+    const currentUserId = getUserId()
+    if (
+      isLoggedIn.value &&
+      (!cartId.value || cartUserId.value !== currentUserId)
+    ) {
+      await getCart()
+    }
     const exists = cartItems.value.some(
-      (i) => i.idProduktu === product.idProduktu,
+      (i) => i.idProduktu === productId,
     )
 
     if (exists) {
-      return await updateQuantity(product, 1, showAlert)
+      return await updateQuantity(cartProduct, 1, showAlert)
     }
-    const isValid = await isItemQuantityValid(product.idProduktu, 1)
+    const isValid = await isItemQuantityValid(productId, 1)
     if (!isValid) {
       showAlert({
         type: "error",
@@ -178,15 +220,15 @@ export const addToCart = async (product, showAlert) => {
     }
     if (!isLoggedIn.value) {
       cartItems.value.push({
-        idProduktu: product.idProduktu,
+        idProduktu: productId,
         ilosc: 1,
-        product: product,
+        product: cartProduct,
       })
       syncLocalStorage()
     } else {
       await api.post("cartitems", {
         idKoszyka: cartId.value,
-        idProduktu: product.idProduktu,
+        idProduktu: productId,
         ilosc: 1,
       })
       await getCart()
@@ -194,6 +236,7 @@ export const addToCart = async (product, showAlert) => {
 
     showAlert({ type: "success", message: "Added to cart", duration: 1000 })
   } catch (error) {
+    console.error("Add to cart failed:", error.response?.data || error)
     showAlert({
       type: "error",
       message: "Failed to add product",
