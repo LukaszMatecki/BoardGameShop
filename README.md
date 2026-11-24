@@ -25,11 +25,10 @@ To projekt edukacyjny. Przykładowy katalog zawiera 10 istniejących gier plansz
 ## Spis treści
 
 1. [Funkcje](#funkcje)
-2. [Technologie](#technologie)
-3. [Układ projektu](#uklad-projektu)
-4. [Uruchomienie lokalne (Windows)](#uruchomienie-lokalne)
-5. [Konfiguracja i bezpieczeństwo](#konfiguracja-i-bezpieczenstwo)
-6. [English version](#english-version)
+2. [Układ projektu](#uklad-projektu)
+3. [Uruchomienie lokalne (Windows)](#uruchomienie-lokalne)
+4. [Konfiguracja i bezpieczeństwo](#konfiguracja-i-bezpieczenstwo)
+5. [English version](#english-version)
 
 ---
 
@@ -39,25 +38,15 @@ To projekt edukacyjny. Przykładowy katalog zawiera 10 istniejących gier plansz
 
 ### Dla użytkownika
 
-- **Katalog produktów** — przeglądanie, wyszukiwanie i filtrowanie gier według kategorii.
-- **Konta i autoryzacja** — rejestracja, logowanie i uwierzytelnianie użytkowników.
-- **Proces zakupowy** — zarządzanie koszykiem, składanie zamówień i przeglądanie historii zakupów.
-- **Lista życzeń i opinie** — zapisywanie ulubionych gier oraz wystawianie ocen i recenzji.
+- **Katalog produktów** - przeglądanie, wyszukiwanie i filtrowanie gier według kategorii.
+- **Konta i autoryzacja** - rejestracja, logowanie i uwierzytelnianie użytkowników.
+- **Proces zakupowy** - zarządzanie koszykiem, składanie zamówień i przeglądanie historii zakupów.
+- **Lista życzeń i opinie** - zapisywanie ulubionych gier oraz wystawianie ocen i recenzji.
 
 ### Panel administracyjny
 
-- **Zarządzanie katalogiem** — dodawanie, edycja i usuwanie produktów.
-- **Obsługa sklepu** — zarządzanie zamówieniami i aktualną ofertą.
-
-<a id="technologie"></a>
-
-## Technologie
-
-<p align="center">
-  <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=vue,vite,js,cs,dotnet,postgres,docker,git&perline=8" alt="Vue.js, Vite, JavaScript, C#, .NET, PostgreSQL, Docker i Git">
-  </a>
-</p>
+- **Zarządzanie katalogiem** - dodawanie, edycja i usuwanie produktów.
+- **Obsługa sklepu** - zarządzanie zamówieniami i aktualną ofertą.
 
 <a id="uklad-projektu"></a>
 
@@ -179,34 +168,23 @@ This is an educational project. The sample catalogue contains 10 real board game
 ## Contents
 
 1. [Features](#features)
-2. [Technology badges](#technology-badges)
-3. [Project structure](#project-structure)
-4. [Run locally on Windows](#run-locally-on-windows)
-5. [Configuration and security](#configuration-and-security)
+2. [Project structure](#project-structure)
+3. [Run locally on Windows](#run-locally-on-windows)
+4. [Configuration and security](#configuration-and-security)
 
 ## Features
 
 ### For customers
 
-- **Product catalogue** — browse, search, and filter games by category.
-- **Accounts and sign-in** — user registration and authentication.
-- **Shopping flow** — manage the cart, place orders, and view order history.
-- **Wishlist and reviews** — save favourite games and share ratings and reviews.
+- **Product catalogue** - browse, search, and filter games by category.
+- **Accounts and sign-in** - user registration and authentication.
+- **Shopping flow** - manage the cart, place orders, and view order history.
+- **Wishlist and reviews** - save favourite games and share ratings and reviews.
 
 ### Admin panel
 
-- **Catalogue management** — add, edit, and remove products.
-- **Shop operations** — manage orders and the current product offer.
-
-<a id="technology-badges"></a>
-
-## Technology badges
-
-<p align="center">
-  <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=vue,vite,js,cs,dotnet,postgres,docker,git&perline=8" alt="Vue.js, Vite, JavaScript, C#, .NET, PostgreSQL, Docker, and Git">
-  </a>
-</p>
+- **Catalogue management** - add, edit, and remove products.
+- **Shop operations** - manage orders and the current product offer.
 
 <a id="project-structure"></a>
 
