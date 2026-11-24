@@ -18,7 +18,7 @@
 
 **Sklep z planszówkami** to aplikacja internetowa symulująca działanie nowoczesnego sklepu z grami planszowymi. Użytkownicy mogą przeglądać katalog, zapoznawać się ze szczegółami tytułów oraz przejść przez całą ścieżkę zakupową, od dodania gry do koszyka aż po złożenie zamówienia i sprawdzenie jego historii.
 
-To projekt edukacyjny. Przykładowy katalog zawiera 10 istniejących gier planszowych, natomiast ceny i stany magazynowe mają charakter demonstracyjny.
+To projekt edukacyjny. Przykładowy katalog obejmuje 20 istniejących gier planszowych: polskie tytuły takie jak „Kolejka”, „Neuroshima HEX!” i „Wiedźmin: Stary Świat” oraz znane gry, m.in. Monopoly Classic, Catan, Dixit, Azul, Tajniacy, Carcassonne, Scrabble i Dobble. Ceny i stany magazynowe mają charakter demonstracyjny.
 
 <a id="spis-tresci"></a>
 
@@ -163,7 +163,7 @@ Lokalne hasła, klucze JWT oraz connection stringi przechowuj w pliku `.env` lub
 
 **Board Game Shop** is an online store for board games. Visitors can browse the catalogue, learn about each title, and follow the shopping process from adding a game to the cart through placing an order and reviewing their order history.
 
-This is an educational project. The sample catalogue contains 10 real board games; prices and stock levels are for demonstration purposes.
+This is an educational project. The sample catalogue contains 20 real board games, including Polish titles and popular favourites such as Monopoly Classic, Catan, Dixit, Azul, Codenames (Tajniacy), Carcassonne, Scrabble, and Dobble. Prices and stock levels are for demonstration purposes.
 
 ## Contents
 

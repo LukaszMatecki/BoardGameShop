@@ -22,7 +22,8 @@ public sealed class SetBoardGameProductImages : Migration
             -- Lords of Hellas: https://gamefound.com/en/creators/awaken-realms
             -- Tainted Grail: https://sklep.awakenrealms.com/tainted-grail---upadek-avalonu,60,53.html
             -- Wiedźmin: Stary Świat: https://www.planszomania.pl/przygodowe/22317/Wiedzmin-Stary-Swiat.html
-            -- Frostpunk: https://www.rebel.pl/gry-planszowe/frostpunk-gra-planszowa-2001392.html            UPDATE produkt AS p
+            -- Frostpunk: https://www.rebel.pl/gry-planszowe/frostpunk-gra-planszowa-2001392.html
+            UPDATE produkt AS p
             SET zdjecie = CASE p.nazwa_produktu
                 WHEN 'Kolejka' THEN 'https://www.krainazabawek24.pl/media/products/419bc3a1c4c039c35aba95be384d2590/images/thumbnail/large_01228-0.webp?lm=1731433763'
                 WHEN 'Reglamentacja. Gra na kartki' THEN 'https://image.ceneostatic.pl/data/products/34615237/4d41bbe1-670f-4e80-bce0-b509e44f6923_i-reglamentacja.jpg'
@@ -72,4 +73,3 @@ public sealed class SetBoardGameProductImages : Migration
             """);
     }
 }
-
