@@ -36,7 +36,7 @@ const isFormInvalid = () => {
   const isEmpty = (value) => value == null || value.trim() === ""
   let isAddressValid = true
 
-  if (!isLocalDelivery) {
+  if (!isLocalDelivery.value) {
     isAddressValid =
       !isEmpty(addressForm.value.street) &&
       !isEmpty(addressForm.value.buildingNo) &&

@@ -26,6 +26,7 @@ const emit = defineEmits(["close", "order-placed", "back"])
 const isSubmitting = ref(false)
 const selectedPayment = ref(null)
 const placedOrderFlag = ref(false)
+const orderError = ref("")
 
 const addresses = ref([])
 
@@ -54,9 +55,7 @@ const isPaymentValid = () => {
   const isEmpty = (value) => value == null || value.trim() === ""
 
   if (selectedPayment.value?.id === 1)
-    return (
-      !isEmpty(blikCode.value) && blikCode.value.replace(/\s/g, "").length === 6
-    )
+    return /^\d{6}$/.test(blikCode.value.replace(/\s/g, ""))
   if (selectedPayment.value?.id === 2)
     return (
       !isEmpty(cardData.value.cardNumber) &&
@@ -85,6 +84,7 @@ const totalOrderSum = computed(() => {
 
 const selectPayment = (method) => {
   selectedPayment.value = method
+  orderError.value = ""
 }
 
 const loadAddresses = async () => {
@@ -137,9 +137,28 @@ const findAddressId = () => {
 
 const handleFinalizeOrder = async () => {
   placedOrderFlag.value = true
-  let paymentAmount = totalOrderSum.value
+  orderError.value = ""
 
-  if (!selectedPayment.value || !isPaymentValid()) {
+  if (!selectedPayment.value) {
+    orderError.value = "Please select a payment method."
+    return
+  }
+
+  if (!isPaymentValid()) {
+    orderError.value = selectedPayment.value.id === 1
+      ? "Enter a valid six-digit BLIK code."
+      : "Complete the card details before continuing."
+    return
+  }
+
+  if (!cartItems.value.length) {
+    orderError.value = "Your cart is empty. Add a product before placing an order."
+    return
+  }
+
+  const paymentAmount = Number(totalOrderSum.value)
+  if (!Number.isFinite(paymentAmount)) {
+    orderError.value = "The order total is invalid. Please review your cart."
     return
   }
 
@@ -189,6 +208,13 @@ const handleFinalizeOrder = async () => {
     orderSuccess.value = true
   } catch (error) {
     console.error("Order error:", error)
+    const responseData = error.response?.data
+    orderError.value =
+      (typeof responseData === "string" && responseData) ||
+      responseData?.message ||
+      (error.response
+        ? "The order could not be completed. Please try again."
+        : "Cannot reach the server. Make sure the backend is running.")
   } finally {
     isSubmitting.value = false
   }
@@ -506,6 +532,9 @@ onMounted(async () => {
                 <span class="total-price">PLN {{ totalOrderSum }}</span>
               </div>
             </div>
+            <p v-if="orderError" class="error-text mt-3" role="alert">
+              {{ orderError }}
+            </p>
           </div>
 
           <div v-else class="success-flow-form">
