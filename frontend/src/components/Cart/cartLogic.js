@@ -143,7 +143,7 @@ export const updateQuantity = async (product, delta, showAlert) => {
     )
     const currentQty = item ? item.ilosc : 0
     const newQty = currentQty + delta
-    const isValid = await isItemQuantityValid(product.idProduktu, newQty)
+    const isValid = await isItemQuantityValid(product.idProduktu, newQty, product)
     if (!isValid) {
       showAlert({
         type: "warning",
@@ -208,7 +208,7 @@ export const addToCart = async (product, showAlert) => {
     if (exists) {
       return await updateQuantity(cartProduct, 1, showAlert)
     }
-    const isValid = await isItemQuantityValid(productId, 1)
+    const isValid = await isItemQuantityValid(productId, 1, cartProduct)
     if (!isValid) {
       showAlert({
         type: "error",
@@ -260,8 +260,13 @@ export const removeFromCart = async (itemId, showAlert) => {
 
   showAlert({ type: "success", message: "Item removed", duration: 1000 })
 }
-const isItemQuantityValid = async (productId, newQty) => {
+const isItemQuantityValid = async (productId, newQty, knownProduct = null) => {
   if (newQty <= 0) return false
+  const knownStock = Number(knownProduct?.stanMagazynowy)
+  if (!isLoggedIn.value && Number.isFinite(knownStock)) {
+    return newQty <= knownStock
+  }
+
   const { data: product } = await api.get(`products/${productId}`)
   return newQty <= product.stanMagazynowy
 }
