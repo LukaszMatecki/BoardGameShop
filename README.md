@@ -16,7 +16,7 @@
 
 ## O projekcie
 
-**Sklep z planszówkami** to aplikacja internetowa symulująca działanie nowoczesnego sklepu z grami planszowymi. Użytkownicy mogą przeglądać katalog, zapoznawać się ze szczegółami tytułów oraz przejść przez całą ścieżkę zakupową — od dodania gry do koszyka aż po złożenie zamówienia i sprawdzenie jego historii.
+**Sklep z planszówkami** to aplikacja internetowa symulująca działanie nowoczesnego sklepu z grami planszowymi. Użytkownicy mogą przeglądać katalog, zapoznawać się ze szczegółami tytułów oraz przejść przez całą ścieżkę zakupową, od dodania gry do koszyka aż po złożenie zamówienia i sprawdzenie jego historii.
 
 To projekt edukacyjny. Przykładowy katalog zawiera 10 istniejących gier planszowych, natomiast ceny i stany magazynowe mają charakter demonstracyjny.
 
@@ -151,7 +151,7 @@ Pozostaw backend i frontend uruchomione w osobnych terminalach. Każdy serwer za
 
 ## Konfiguracja i bezpieczeństwo
 
-Lokalne hasła, klucze JWT oraz connection stringi przechowuj w pliku `.env` lub w .NET User Secrets. Te dane są pomijane przez Git. Do repozytorium dodawaj wyłącznie pliki przykładowe, takie jak `.env.example` — nigdy prawdziwych haseł, kluczy ani connection stringów.
+Lokalne hasła, klucze JWT oraz connection stringi przechowuj w pliku `.env` lub w .NET User Secrets. Te dane są pomijane przez Git. Do repozytorium dodawaj wyłącznie pliki przykładowe, takie jak `.env.example` - nigdy prawdziwych haseł, kluczy ani connection stringów.
 
 ---
 
