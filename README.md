@@ -28,7 +28,8 @@ To projekt edukacyjny. Przykładowy katalog obejmuje 20 istniejących gier plans
 2. [Układ projektu](#uklad-projektu)
 3. [Uruchomienie lokalne (Windows)](#uruchomienie-lokalne)
 4. [Konfiguracja i bezpieczeństwo](#konfiguracja-i-bezpieczenstwo)
-5. [English version](#english-version)
+5. [Autorzy / Authors](#autorzy-authors)
+6. [English version](#english-version)
 
 ---
 
@@ -171,6 +172,7 @@ This is an educational project. The sample catalogue contains 20 real board game
 2. [Project structure](#project-structure)
 3. [Run locally on Windows](#run-locally-on-windows)
 4. [Configuration and security](#configuration-and-security)
+5. [Authors / Autorzy](#autorzy-authors)
 
 ## Features
 
@@ -262,6 +264,8 @@ Keep the backend and frontend terminals open while using the application. Press 
 ## Configuration and security
 
 Keep local passwords, JWT keys, and connection strings in `.env` or .NET User Secrets. They are ignored by Git. Commit example templates such as `.env.example` only; never add real passwords, keys, or connection strings to the repository.
+
+<a id="autorzy-authors"></a>
 
 ## Autorzy / Authors
 
