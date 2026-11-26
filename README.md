@@ -262,3 +262,14 @@ Keep the backend and frontend terminals open while using the application. Press 
 ## Configuration and security
 
 Keep local passwords, JWT keys, and connection strings in `.env` or .NET User Secrets. They are ignored by Git. Commit example templates such as `.env.example` only; never add real passwords, keys, or connection strings to the repository.
+
+## Autorzy / Authors
+
+| Rola / Role | Imię i nazwisko / Name | GitHub |
+| :--- | :--- | :--- |
+| **Backend & Database Integration Developer** | Jolanta Smarzych | [jksmarzych](https://github.com/jksmarzych) |
+| **Database Design & PostgreSQL Administrator** | Pola Dorosz | [doroszpola](https://github.com/doroszpola) |
+| **Frontend Developer & UI/UX Designer** | Kasia Kupis | [kasiaxk1](https://github.com/kasiaxk1) |
+| **Project Setup, Deployment & Hosting Engineer** | Miłosz Kotarba | [miloszkotarba](https://github.com/miloszkotarba) |
+| **Full-Stack Developer & Feature Integrator** | Łukasz Matecki | [LukaszMatecki](https://github.com/LukaszMatecki) |
+| **Backend Developer (Shopping Cart & Supporting Features)** | Paweł Tartanus | [PawelTarta](https://github.com/PawelTarta) |
