@@ -265,11 +265,11 @@ Keep local passwords, JWT keys, and connection strings in `.env` or .NET User Se
 
 ## Autorzy / Authors
 
-| Rola / Role | Imię i nazwisko / Name | GitHub |
+| Rola / Role | Imię i nazwisko / Name | GitHub Profile |
 | :--- | :--- | :--- |
 | **Backend & Database Integration Developer** | Jolanta Smarzych | [jksmarzych](https://github.com/jksmarzych) |
 | **Database Design & PostgreSQL Administrator** | Pola Dorosz | [doroszpola](https://github.com/doroszpola) |
 | **Frontend Developer & UI/UX Designer** | Kasia Kupis | [kasiaxk1](https://github.com/kasiaxk1) |
 | **Project Setup, Deployment & Hosting Engineer** | Miłosz Kotarba | [miloszkotarba](https://github.com/miloszkotarba) |
-| **Full-Stack Developer & Feature Integrator** | Łukasz Matecki | [LukaszMatecki](https://github.com/LukaszMatecki) |
-| **Backend Developer (Shopping Cart & Supporting Features)** | Paweł Tartanus | [PawelTarta](https://github.com/PawelTarta) |
+| **Full-Stack Developer** | Łukasz Matecki | [LukaszMatecki](https://github.com/LukaszMatecki) |
+| **Backend Developer** | Paweł Tartanus | [PawelTarta](https://github.com/PawelTarta) |
