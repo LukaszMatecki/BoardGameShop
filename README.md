@@ -28,8 +28,8 @@ To projekt edukacyjny. Przykładowy katalog obejmuje 20 istniejących gier plans
 2. [Układ projektu](#uklad-projektu)
 3. [Uruchomienie lokalne (Windows)](#uruchomienie-lokalne)
 4. [Konfiguracja i bezpieczeństwo](#konfiguracja-i-bezpieczenstwo)
-5. [Autorzy / Authors](#autorzy-authors)
-6. [English version](#english-version)
+5. [English version](#english-version)
+6. [Autorzy / Authors](#autorzy-authors)
 
 ---
 
@@ -271,9 +271,9 @@ Keep local passwords, JWT keys, and connection strings in `.env` or .NET User Se
 
 | Rola / Role | Imię i nazwisko / Name | GitHub Profile |
 | :--- | :--- | :--- |
-| **Backend & Database Integration Developer** | Jolanta Smarzych | [jksmarzych](https://github.com/jksmarzych) |
-| **Database Design & PostgreSQL Administrator** | Pola Dorosz | [doroszpola](https://github.com/doroszpola) |
-| **Frontend Developer & UI/UX Designer** | Kasia Kupis | [kasiaxk1](https://github.com/kasiaxk1) |
-| **Project Setup, Deployment & Hosting Engineer** | Miłosz Kotarba | [miloszkotarba](https://github.com/miloszkotarba) |
-| **Full-Stack Developer** | Łukasz Matecki | [LukaszMatecki](https://github.com/LukaszMatecki) |
-| **Backend Developer** | Paweł Tartanus | [PawelTarta](https://github.com/PawelTarta) |
+| **Backend & Database Integration Developer** | Jolanta Smarzych | [GitHub Profile](https://github.com/jksmarzych) |
+| **Database Design & PostgreSQL Administrator** | Pola Dorosz | [GitHub Profile](https://github.com/doroszpola) |
+| **Frontend Developer & UI/UX Designer** | Kasia Kupis | [GitHub Profile](https://github.com/kasiaxk1) |
+| **Project Setup, Deployment & Hosting Engineer** | Miłosz Kotarba | [GitHub Profile](https://github.com/miloszkotarba) |
+| **Full-Stack Developer** | Łukasz Matecki | [GitHub Profile](https://github.com/LukaszMatecki) |
+| **Backend Developer** | Paweł Tartanus | [GitHub Profile](https://github.com/PawelTarta) |
